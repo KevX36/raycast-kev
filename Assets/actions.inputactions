@@ -122,59 +122,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "77a286f5-1fc2-4767-b2e6-1d4a339668dd",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "ad810817-08a0-49e5-bfef-69dbfae98ec0",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Cam",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "4fbb587a-d356-4c31-8a80-5d5ce4bb6152",
-                    "path": "<Mouse>/delta/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cam",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "9be5991c-78d1-4a82-86f9-7e43ba291975",
-                    "path": "<Mouse>/delta/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cam",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "8fb3b6e9-56a5-4f05-b424-1da220ff1bd7",
-                    "path": "<Mouse>/delta/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cam",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "61748450-fdcd-4093-b04d-91a08ad9bdfc",
-                    "path": "<Mouse>/delta/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cam",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }

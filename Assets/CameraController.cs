@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
     {
 
         Vector2 mouseMovement = context.ReadValue<Vector2>();
-        Debug.Log(mouseMovement);
+        
         pitch += mouseMovement.y * turnspeed;
         if (pitch < pitchMin)
         {
