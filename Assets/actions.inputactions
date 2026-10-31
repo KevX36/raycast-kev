@@ -91,7 +91,7 @@
                 {
                     "name": "right",
                     "id": "ab2a9c6d-1493-490c-b2ce-91c49913454b",
-                    "path": "<Mouse>/delta/left",
+                    "path": "<Mouse>/delta/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

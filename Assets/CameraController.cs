@@ -19,7 +19,9 @@ public class CameraController : MonoBehaviour
     }
     public void MoveCam(InputAction.CallbackContext context)
     {
+
         Vector2 mouseMovement = context.ReadValue<Vector2>();
+        Debug.Log(mouseMovement);
         pitch += mouseMovement.y * turnspeed;
         if (pitch < pitchMin)
         {
@@ -31,7 +33,7 @@ public class CameraController : MonoBehaviour
         }
 
         yaw += mouseMovement.x * turnspeed;
-
+        
         cam.transform.rotation = Quaternion.Euler(-pitch, yaw, 0);
         transform.rotation = Quaternion.Euler(0, yaw, 0);
     }
