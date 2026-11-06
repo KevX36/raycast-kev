@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.Windows;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,16 +34,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject PickUpGO;
     [SerializeField] private Rigidbody PickUpRB;
 
+    public int score;
+    public TextMeshProUGUI scoretext;
 
-
-
+    public float thossForce = 500;
 
 
 
     //makes sure no movement happens at start without imput
     private bool doNothingOnStart = true;
 
-
+    public void scoreUp()
+    {
+        score++;
+        scoretext.text = $"score: {score}";
+    }
 
 
     public void Interact(InputAction.CallbackContext context)
@@ -56,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
                 PickUpGO.GetComponent<BoxCollider>().enabled = true;
                 PickUpRB.constraints = RigidbodyConstraints.None;
-                PickUpRB.AddForce(cam.transform.forward);
+                PickUpRB.AddForce((cam.transform.forward * TossPower) + (cam.transform.up * (TossPower / 2)));
                 PickUpGO = null;
                 PickUpRB = null;
 
