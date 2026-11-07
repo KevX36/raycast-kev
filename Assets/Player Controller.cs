@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
 
             if (currentInteractable != null && hitObject != currentInteractable)
             {
-                InteractionManager.instance.RemoveHighlightFromInteractable(currentInteractable);
+                InteractionManager.instance.RemoveHighlightFromInteractable();
             }
             else if (hitObject.CompareTag("PickUp") || hitObject.CompareTag("interactable"))
             {
