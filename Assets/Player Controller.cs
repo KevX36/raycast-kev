@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
 
         if (PickUpGO != null)
         {
-
+            InteractionManager.instance.RemoveHighlightFromInteractable();
             PickUpGO.transform.position = GrabSpot.transform.position;
             PickUpGO.transform.rotation = GrabSpot.transform.rotation;
         }
