@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (hitObject.CompareTag("interactable"))
                 {
-                    hitObject.GetComponent<IInteractable>().OnInteract();
+                    InteractionManager.instance.Interact(hitObject.GetComponent<IInteractable>());
                 }
 
 
@@ -148,9 +148,32 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    public GameObject currentInteractable;
+    
     void Update()
     {
-        Debug.DrawLine(cam.transform.position, (cam.transform.forward * InteractRange) + cam.transform.position, Color.red);
+        RaycastHit interactableCheck;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out interactableCheck, InteractRange) && PickUpGO == null)
+        {
+            GameObject hitObject = interactableCheck.transform.gameObject;
+
+            if (currentInteractable != null && hitObject != currentInteractable)
+            {
+                InteractionManager.instance.RemoveHighlightFromInteractable(currentInteractable);
+            }
+            else if (hitObject.CompareTag("PickUp") || hitObject.CompareTag("interactable"))
+            {
+                currentInteractable = hitObject;
+                InteractionManager.instance.HighlightInteractable(currentInteractable);
+            }
+            
+
+
+        }
+        
+
+            Debug.DrawLine(cam.transform.position, (cam.transform.forward * InteractRange) + cam.transform.position, Color.red);
         isGrounded = cheakIfGrounded();
         
         if (PlayerFall.y > 0 && !Jumping)
