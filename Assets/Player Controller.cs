@@ -160,9 +160,15 @@ public class PlayerController : MonoBehaviour
 
             if (currentInteractable != null && hitObject != currentInteractable)
             {
+                currentInteractable = null;
                 InteractionManager.instance.RemoveHighlightFromInteractable();
             }
-            else if (hitObject.CompareTag("PickUp") || hitObject.CompareTag("interactable"))
+            else if (hitObject.CompareTag("interactable"))
+            {
+                currentInteractable = hitObject;
+                InteractionManager.instance.HighlightInteractable(currentInteractable);
+            }
+            else if (hitObject.CompareTag("PickUp"))
             {
                 currentInteractable = hitObject;
                 InteractionManager.instance.HighlightInteractable(currentInteractable);
@@ -171,7 +177,12 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        
+        else
+        {
+            currentInteractable = null;
+            InteractionManager.instance.RemoveHighlightFromInteractable();
+        }
+
 
             Debug.DrawLine(cam.transform.position, (cam.transform.forward * InteractRange) + cam.transform.position, Color.red);
         isGrounded = cheakIfGrounded();
